@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<MAPA>
+  <LINHAS>10</LINHAS>
+  <COLUNAS>15</COLUNAS>
+  <INICIAL>3,4</INICIAL>
+  <FINAL>8,8</FINAL>
+
+  <BARREIRAS>
+	<MURO>4,4</MURO>	
+	<MURO>4,5</MURO>	
+	<MURO>4,6</MURO>	
+	<MURO>5,5</MURO>	
+	<MURO>5,6</MURO>	
+	<MURO>6,4</MURO>	
+	<MURO>6,5</MURO>	
+	<MURO>6,6</MURO>	
+  </BARREIRAS>
+</MAPA>
