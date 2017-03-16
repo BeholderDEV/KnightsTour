@@ -7,13 +7,15 @@ package br.beholder.knightstour.control;
 
 import br.beholder.knightstour.core.model.Cell;
 import br.beholder.knightstour.core.model.Mapa;
-import br.beholder.knightstour.core.reader.PFReader;
-import br.beholder.knightstour.core.reader.XMLReader;
 import br.beholder.knightstour.ui.MainPanel;
 import br.beholder.knightstour.ui.swing.MapRenderer;
 import com.alee.extended.image.DisplayType;
 import com.alee.extended.image.WebImage;
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Point;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.SwingUtilities;
 
 /**
@@ -53,12 +55,6 @@ public class NormalPathController {
         this.tipo = tipo;
     }
 
-    public void readPF() {
-        mapa = PFReader.lerPF();
-        Image image = MapRenderer.getInstance().getFirstImage(mapa);
-        setPathImage(image);
-    }
-
     public void calculate() {
         if (mapa != null) {
             if (mapa.getPathMatrix() != null) {
@@ -93,10 +89,50 @@ public class NormalPathController {
         Image imagem = MapRenderer.getInstance().getStepImage(mapa, closed,grid);
         setPathImage(imagem);
     }
-
-    public void readXML() {
-        mapa = XMLReader.lerXML();
+    
+    public void createMap(Integer size, Point initial)
+    {
+        int[][] mat = new int[size][size];        
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                mat[i][j] = 0;
+            }
+        }        
+        mapa = new Mapa(new Dimension(size, size), mat, initial);
         Image image = MapRenderer.getInstance().getFirstImage(mapa);
         setPathImage(image);
+        String str="";
+        str = str.concat("Mapa Criado \n");
+        str = str.concat("Tamanho: " + size + "x" + size);
+        str = str.concat("\n Inicio: X-" + initial.getX() + " Y-"+initial.getY());
+        
+        mainPanel.getConsoleArea().setText(str);
+    }
+    
+    public void randomMap()
+    {
+        int size = ThreadLocalRandom.current().nextInt(50);
+        while(size<5)
+        {
+            size = ThreadLocalRandom.current().nextInt(50);
+        }
+        int[][] mat = new int[size][size];        
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                mat[i][j] = 0;
+            }
+        }
+        
+        Point initial = new Point(ThreadLocalRandom.current().nextInt(size), ThreadLocalRandom.current().nextInt(size));
+        
+        mapa = new Mapa(new Dimension(size, size), mat, initial);
+        Image image = MapRenderer.getInstance().getFirstImage(mapa);
+        setPathImage(image);
+        String str="";
+        str = str.concat("Mapa Criado \n");
+        str = str.concat("Tamanho: " + size + "x" + size);
+        str = str.concat("\n Inicio: X-" + initial.getX() + " Y-"+initial.getY());
+        
+        mainPanel.getConsoleArea().setText(str);
     }
 }

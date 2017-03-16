@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/pethfinder/core/search/SearchMethodFactory.java</file>
-            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/pethfinder/core/search/AStarMethod.java</file>
-            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/pethfinder/core/search/BuscaGulosa.java</file>
-            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/pethfinder/core/search/BuscaRaio.java</file>
-            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/pethfinder/core/search/DefaultAStarMethod.java</file>
-            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/pethfinder/Lancador.java</file>
-            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/pethfinder/ui/MainPanel.java</file>
-            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/pethfinder/control/NormalPathController.java</file>
+            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/knightstour/core/model/Mapa.java</file>
+            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/knightstour/ui/MainPanel.java</file>
+            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/knightstour/core/reader/PFReader.java</file>
+            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/knightstour/Lancador.java</file>
+            <file>file:/C:/Users/Adson%20Esteves/Documents/Github/KnightsTour/src/br/beholder/knightstour/control/NormalPathController.java</file>
         </group>
     </open-files>
 </project-private>

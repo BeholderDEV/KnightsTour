@@ -165,20 +165,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="webButton2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="com.alee.laf.button.WebButton" name="webButton1">
+            <Component class="com.alee.laf.button.WebButton" name="webButton3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Carregar PF"/>
+                <Property name="text" type="java.lang.String" value="Mapa Random"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="webButton1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="com.alee.laf.button.WebButton" name="webButton4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Carregar XML"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="webButton4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="webButton3ActionPerformed"/>
               </Events>
             </Component>
             <Component class="com.alee.laf.button.WebButton" name="webButton5">

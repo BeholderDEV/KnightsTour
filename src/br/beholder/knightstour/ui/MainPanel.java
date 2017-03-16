@@ -52,9 +52,8 @@ public class MainPanel extends javax.swing.JPanel {
         jTabbedPane1.setUI(new PSOutTabbedPaneUI());
         
         WeblafUtils.configurarBotao(webButton5, ColorController.COR_DESTAQUE, ColorController.COR_LETRA);
-        WeblafUtils.configurarBotao(webButton4, ColorController.COR_DESTAQUE, ColorController.COR_LETRA);
-        WeblafUtils.configurarBotao(webButton1, ColorController.COR_DESTAQUE, ColorController.COR_LETRA);
         WeblafUtils.configurarBotao(webButton2, ColorController.COR_DESTAQUE, ColorController.COR_LETRA);
+        WeblafUtils.configurarBotao(webButton3, ColorController.COR_DESTAQUE, ColorController.COR_LETRA);
         
 //        WeblafUtils.configurarBotao(webButton3, ColorController.COR_PRINCIPAL, ColorController.COR_LETRA,ColorController.FUNDO_CLARO, Color.orange, 5);
         
@@ -95,8 +94,7 @@ public class MainPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         webComboBox1 = new com.alee.laf.combobox.WebComboBox();
         webButton2 = new com.alee.laf.button.WebButton();
-        webButton1 = new com.alee.laf.button.WebButton();
-        webButton4 = new com.alee.laf.button.WebButton();
+        webButton3 = new com.alee.laf.button.WebButton();
         webButton5 = new com.alee.laf.button.WebButton();
         jSplitPane1 = new javax.swing.JSplitPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -165,21 +163,13 @@ public class MainPanel extends javax.swing.JPanel {
         });
         jPanel5.add(webButton2);
 
-        webButton1.setText("Carregar PF");
-        webButton1.addActionListener(new java.awt.event.ActionListener() {
+        webButton3.setText("Mapa Random");
+        webButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                webButton1ActionPerformed(evt);
+                webButton3ActionPerformed(evt);
             }
         });
-        jPanel5.add(webButton1);
-
-        webButton4.setText("Carregar XML");
-        webButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                webButton4ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(webButton4);
+        jPanel5.add(webButton3);
 
         webButton5.setText("Calcular");
         webButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -235,21 +225,17 @@ public class MainPanel extends javax.swing.JPanel {
         return new Point(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField3.getText()));
     }
     
-    private void webButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webButton1ActionPerformed
-        controller.readPF();
-    }//GEN-LAST:event_webButton1ActionPerformed
-
-    private void webButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webButton4ActionPerformed
-        controller.readXML();
-    }//GEN-LAST:event_webButton4ActionPerformed
-
     private void webButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webButton5ActionPerformed
         controller.calculate();
     }//GEN-LAST:event_webButton5ActionPerformed
 
     private void webButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webButton2ActionPerformed
-        // TODO add your handling code here:
+        controller.createMap(getBoardSize(), getInicialPosition());
     }//GEN-LAST:event_webButton2ActionPerformed
+
+    private void webButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webButton3ActionPerformed
+        controller.randomMap();
+    }//GEN-LAST:event_webButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -271,9 +257,8 @@ public class MainPanel extends javax.swing.JPanel {
     private javax.swing.JPanel positionPanel;
     private javax.swing.JPanel sizePanel;
     private javax.swing.JPanel timePanel;
-    private com.alee.laf.button.WebButton webButton1;
     private com.alee.laf.button.WebButton webButton2;
-    private com.alee.laf.button.WebButton webButton4;
+    private com.alee.laf.button.WebButton webButton3;
     private com.alee.laf.button.WebButton webButton5;
     private com.alee.laf.combobox.WebComboBox webComboBox1;
     // End of variables declaration//GEN-END:variables
