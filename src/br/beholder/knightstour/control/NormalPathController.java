@@ -111,11 +111,7 @@ public class NormalPathController {
     
     public void randomMap()
     {
-        int size = ThreadLocalRandom.current().nextInt(50);
-        while(size<5)
-        {
-            size = ThreadLocalRandom.current().nextInt(50);
-        }
+        int size = ThreadLocalRandom.current().nextInt(5, 50);
         int[][] mat = new int[size][size];        
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
