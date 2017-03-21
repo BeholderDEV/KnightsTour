@@ -114,15 +114,20 @@ public class MainPanel extends javax.swing.JPanel {
         jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        jTextField4.setText("8");
+        jTextField4.setText("7");
         jTextField4.setMinimumSize(new java.awt.Dimension(6, 10));
         jTextField4.setPreferredSize(new java.awt.Dimension(25, 35));
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
         positionPanel.add(jTextField4);
 
         jLabel3.setText("x");
         positionPanel.add(jLabel3);
 
-        jTextField3.setText("8");
+        jTextField3.setText("7");
         jTextField3.setMinimumSize(new java.awt.Dimension(6, 10));
         jTextField3.setPreferredSize(new java.awt.Dimension(25, 35));
         positionPanel.add(jTextField3);
@@ -236,6 +241,10 @@ public class MainPanel extends javax.swing.JPanel {
     private void webButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webButton3ActionPerformed
         controller.randomMap();
     }//GEN-LAST:event_webButton3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

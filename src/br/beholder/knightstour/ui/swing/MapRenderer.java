@@ -75,14 +75,12 @@ public class MapRenderer extends JComponent{
                 int cartX = Math.round(j*tile_size/2f);
                 int cartY =  Math.round(i*tile_size/2f);
                 int isoX = cartX - cartY;
-                int isoY = Math.round((cartX + cartY) / 2f);
-                g2d.drawImage(tile_set, base+isoX, isoY, base+isoX+tile_size, isoY+tile_size, 0, 0, tile_size, tile_size, observer);
-                if(matrix[i][j]==1){
-                    g2d.drawImage(tile_set, base+isoX, isoY-tile_size/2, base+isoX+tile_size, isoY+tile_size/2, tile_size, 0, 2*tile_size, tile_size, observer);
-                }
+                int isoY = Math.round((cartX + cartY) / 2f);                
+                g2d.drawImage(tile_set, base+isoX, isoY, base+isoX+tile_size, isoY+tile_size, matrix[i][j]*tile_size, 0, matrix[i][j]*tile_size+tile_size, tile_size, observer);
+                
                 
                 if(i==mapa.getPontoInicial().y && j==mapa.getPontoInicial().x){
-                    g2d.drawImage(tile_set, base+isoX, isoY-tile_size/2, base+isoX+tile_size, isoY+tile_size/2, 2*tile_size, 0, 3*tile_size, tile_size, observer);
+                    g2d.drawImage(tile_set, base+isoX, isoY, base+isoX+tile_size, isoY+tile_size, 2*tile_size, 0, 2*tile_size+tile_size, tile_size, observer);
                 }
                 
 //                g2d.drawRect(j*tile_size, i*tile_size, tile_size, tile_size);
