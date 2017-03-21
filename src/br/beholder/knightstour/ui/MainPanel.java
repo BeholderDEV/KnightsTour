@@ -218,6 +218,10 @@ public class MainPanel extends javax.swing.JPanel {
         return Integer.parseInt(jTextField1.getText());
     }
     
+    public void setBoardSize(int size){
+        jTextField5.setText(size+"");
+    }
+    
     public String getCalcType(){
         return webComboBox1.getSelectedItem().toString();
     }

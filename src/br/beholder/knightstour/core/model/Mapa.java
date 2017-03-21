@@ -15,8 +15,6 @@ import java.awt.Point;
 public class Mapa {
     private Dimension tamanho;
     private int[][] matrix;
-    private int[][] blocked;
-    private boolean [][] pathMatrix;
     private Point pontoInicial;
 
     public Mapa(Dimension tamanho, int[][] matrix, Point pontoInicial) {
@@ -25,22 +23,6 @@ public class Mapa {
         this.pontoInicial = pontoInicial;
     }
     
-    public int[][] getBlocked() {
-        return blocked;
-    }
-
-    public void setBlocked(int[][] blocked) {
-        this.blocked = blocked;
-    }
-    
-    public boolean [][] getPathMatrix() {
-        return pathMatrix;
-    }
-
-    public void setPathMatrix(boolean[][] pathMatrix) {
-        this.pathMatrix = pathMatrix;
-    }
-
     public Dimension getTamanho() {
         return tamanho;
     }
@@ -60,7 +42,12 @@ public class Mapa {
     public Point getPontoInicial() {
         return pontoInicial;
     }
-
+    
+    public void andar(Point ponto){
+        matrix[ponto.y][ponto.x]=6;
+        setPontoInicial(ponto);
+    }
+    
     public void setPontoInicial(Point pontoInicial) {
         this.pontoInicial = pontoInicial;
     }
