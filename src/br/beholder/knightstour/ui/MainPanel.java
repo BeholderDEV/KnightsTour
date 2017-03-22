@@ -157,7 +157,7 @@ public class MainPanel extends javax.swing.JPanel {
 
         jPanel5.add(timePanel);
 
-        comboBoxAlgoritmo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BackTracking1", "BackTracking2" }));
+        comboBoxAlgoritmo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BackTracking1", "BackTracking2", "Warnsdorf" }));
         comboBoxAlgoritmo.setMinimumSize(new java.awt.Dimension(56, 30));
         jPanel5.add(comboBoxAlgoritmo);
 

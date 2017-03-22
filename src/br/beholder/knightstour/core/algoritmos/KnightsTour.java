@@ -52,6 +52,10 @@ public abstract class KnightsTour {
         return false;
     }
     
+    public boolean posicaoVerificada(Coords c){
+        return this.solucao[c.getX()][c.getY()] != 0;
+    }
+    
     public void imprimirSolucao(){
         DecimalFormat df = new DecimalFormat("00");
         for (int i = 0; i < this.solucao.length; i++) {;;

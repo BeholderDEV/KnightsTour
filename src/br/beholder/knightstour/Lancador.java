@@ -3,6 +3,7 @@ package br.beholder.knightstour;
 
 import br.beholder.knightstour.core.algoritmos.BackTracking2;
 import br.beholder.knightstour.core.algoritmos.KnightsTour;
+import br.beholder.knightstour.core.algoritmos.Warnsdorf;
 import com.alee.laf.WebLookAndFeel;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -39,11 +40,11 @@ public class Lancador {
     private MainPanel mainWindow;
     private final static Lancador application = new Lancador();
     
-        /**
+     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-//        KnightsTour kt = new BackTracking2(8, null);
+//        KnightsTour kt = new Warnsdorf(20, null);
 //        kt.findPath();
         Lancador.getInstance().start();
     }

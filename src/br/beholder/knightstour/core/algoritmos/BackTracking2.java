@@ -28,7 +28,7 @@ public class BackTracking2 extends KnightsTour{
         int linhaInicial = rand.nextInt(this.solucao.length);
 //        System.out.println(colunaInicial);
 //        System.out.println(linhaInicial);
-        if(this.percorrerCaminho(0, 0, 1)){; // Dando problemas quando o início é no meio
+        if(this.percorrerCaminho(0, 0)){; // Dando problemas quando o início é no meio
             this.desenharSolucao();
 //            this.imprimirSolucao();
         }else{
@@ -39,37 +39,37 @@ public class BackTracking2 extends KnightsTour{
     
     }
     
-    private boolean percorrerCaminho(int linha, int coluna, int index){
+    private boolean percorrerCaminho(int linha, int coluna){
         if(this.solucao[linha][coluna] != 0) {
             return false;
         }
         this.solutionCoord[this.path - 1] = new Coords(linha, coluna);
         this.solucao[linha][coluna] = this.path++;
-        if(index == this.solucao.length * this.solucao.length) {
+        if(path == this.solucao.length * this.solucao.length + 1) {
             return true;
         }
-        if(this.movimentoValido(linha + 2, coluna + 1) && this.percorrerCaminho(linha + 2, coluna + 1, index + 1)) {
+        if(this.movimentoValido(linha + 2, coluna + 1) && this.percorrerCaminho(linha + 2, coluna + 1)) {
             return true;
         }
-        if(this.movimentoValido(linha + 1, coluna + 2) && this.percorrerCaminho(linha + 1, coluna + 2, index + 1)) {
+        if(this.movimentoValido(linha + 1, coluna + 2) && this.percorrerCaminho(linha + 1, coluna + 2)) {
             return true;
         }
-        if(this.movimentoValido(linha - 1, coluna + 2) && this.percorrerCaminho(linha - 1, coluna + 2, index + 1)) {
+        if(this.movimentoValido(linha - 1, coluna + 2) && this.percorrerCaminho(linha - 1, coluna + 2)) {
             return true;
         }
-        if(this.movimentoValido(linha - 2, coluna + 1) && this.percorrerCaminho(linha - 2, coluna + 1, index + 1)) {
+        if(this.movimentoValido(linha - 2, coluna + 1) && this.percorrerCaminho(linha - 2, coluna + 1)) {
             return true;
         }
-        if(this.movimentoValido(linha - 2, coluna - 1) && this.percorrerCaminho(linha - 2, coluna - 1, index + 1)) {
+        if(this.movimentoValido(linha - 2, coluna - 1) && this.percorrerCaminho(linha - 2, coluna - 1)) {
             return true;
         }
-        if(this.movimentoValido(linha - 1, coluna - 2) && this.percorrerCaminho(linha - 1, coluna - 2, index + 1)) {
+        if(this.movimentoValido(linha - 1, coluna - 2) && this.percorrerCaminho(linha - 1, coluna - 2)) {
             return true;
         }
-        if(this.movimentoValido(linha + 1, coluna - 2) && this.percorrerCaminho(linha + 1, coluna - 2, index + 1)) {
+        if(this.movimentoValido(linha + 1, coluna - 2) && this.percorrerCaminho(linha + 1, coluna - 2)) {
             return true;
         }
-        if(this.movimentoValido(linha + 2, coluna - 1) && this.percorrerCaminho(linha + 2, coluna - 1, index + 1)) {
+        if(this.movimentoValido(linha + 2, coluna - 1) && this.percorrerCaminho(linha + 2, coluna - 1)) {
             return true;
         }
         this.solucao[linha][coluna] = 0;
