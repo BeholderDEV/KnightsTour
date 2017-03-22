@@ -26,13 +26,15 @@ public class BackTracking2 extends KnightsTour{
         Random rand = new Random(System.nanoTime());
         int colunaInicial = rand.nextInt(this.solucao.length);
         int linhaInicial = rand.nextInt(this.solucao.length);
-//        System.out.println(colunaInicial);
-//        System.out.println(linhaInicial);
+//        System.out.println(linhaInicial + ", " + colunaInicial);
         if(this.percorrerCaminho(0, 0)){; // Dando problemas quando o início é no meio
             this.desenharSolucao();
 //            this.imprimirSolucao();
         }else{
             System.out.println("Fail");
+//            this.path = 1;
+//            this.resetBoard();
+//            return this.findPath();
             return this.solutionCoord;
         }
         return this.solutionCoord;

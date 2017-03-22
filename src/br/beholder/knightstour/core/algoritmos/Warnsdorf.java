@@ -14,29 +14,38 @@ import java.util.Random;
  *
  * @author Augustop
  */
+
+//c,d) ∈ {(a−2,b+1),(a−1,b+2),(a+1,b+2),(a+2,b+1),(a+2,b−1),(a+1,b−2),
+//           (a−1,b−2),(a−2,b−1)}
+
 public class Warnsdorf extends KnightsTour{
 
-    public int moveX [] = { -2, -2, -1, 1, 2, 2, -1, 1 };
-    public int moveY [] = { 1, -1, 2, 2, 1, -1, -2, -2 };
+    private int moveX [] = { -2, -2, -1, 1, 2, 2, -1, 1 };
+    private int moveY [] = { 1, -1, 2, 2, 1, -1, -2, -2 };
+    private Random rand;
+    private int linhaInicial; 
+    private int colunaInicial;
+    
     
     public Warnsdorf(int n, NormalPathController ctr) {
         super(n, ctr);
     }
     
     public Coords[] findPath() {
-        Random rand = new Random(System.nanoTime());
-        int colunaInicial = rand.nextInt(this.solucao.length);
-        int linhaInicial = rand.nextInt(this.solucao.length);
-//        System.out.println(colunaInicial);
-//        System.out.println(linhaInicial);
-//        Coords posicaoInicial = new Coords(linhaInicial, colunaInicial);
-        Coords posicaoInicial = new Coords(0, 0);
-        if(this.percorrerCaminho(posicaoInicial, 1)){; // Falhando algumas vezes com tamanhos maiores que 8 ( Definir desempate de vizinhos
+        this.rand = new Random(System.nanoTime());
+        this.colunaInicial = rand.nextInt(this.solucao.length);
+        this.linhaInicial = rand.nextInt(this.solucao.length);
+        System.out.println(linhaInicial + ", " + colunaInicial);
+        Coords posicaoInicial = new Coords(linhaInicial, colunaInicial);  
+        
+        // Falhando algumas vezes (ler https://www.cs.cmu.edu/~sganzfri/Knights_REU04.pdf) -> Definir desempate de vizinhos
+        if(this.percorrerCaminho(posicaoInicial, 1)){; 
             this.desenharSolucao();
 //            this.imprimirSolucao();
         }else{
-            System.out.println("Fail");
-            return this.solutionCoord;
+            System.out.println("Fail"); 
+            this.resetBoard(); 
+            return this.findPath();
         }
         return this.solutionCoord;
     }
@@ -65,7 +74,6 @@ public class Warnsdorf extends KnightsTour{
         return qtd;
     }
     
-    //Enviar a board inteira por parâmetro(maybe)
     private boolean percorrerCaminho(Coords posicao, int passosRealizados){
         this.solucao[posicao.getX()][posicao.getY()] = passosRealizados;
         this.solutionCoord[passosRealizados - 1] = new Coords(posicao.getX(), posicao.getY());
