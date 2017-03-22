@@ -9,6 +9,7 @@ import br.beholder.knightstour.control.NormalPathController;
 import br.beholder.knightstour.ui.swing.webLaf.PSOutTabbedPaneUI;
 import br.beholder.knightstour.ui.swing.webLaf.WeblafUtils;
 import br.beholder.knightstour.ui.utils.ColorController;
+import com.alee.laf.combobox.WebComboBox;
 import java.awt.Point;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -36,7 +37,7 @@ public class MainPanel extends javax.swing.JPanel {
     
     private void configureTheme(){
         WeblafUtils.instalaWeblaf();
-        WeblafUtils.configuraWebLaf(webComboBox1);
+        WeblafUtils.configuraWebLaf(comboBoxAlgoritmo);
         WeblafUtils.configuraWeblaf(jPanel2);
         WeblafUtils.configuraWebLaf(jTextField1);
         WeblafUtils.configuraWebLaf(jTextField4);
@@ -92,7 +93,7 @@ public class MainPanel extends javax.swing.JPanel {
         timePanel = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        webComboBox1 = new com.alee.laf.combobox.WebComboBox();
+        comboBoxAlgoritmo = new com.alee.laf.combobox.WebComboBox();
         webButton2 = new com.alee.laf.button.WebButton();
         webButton3 = new com.alee.laf.button.WebButton();
         webButton5 = new com.alee.laf.button.WebButton();
@@ -156,9 +157,9 @@ public class MainPanel extends javax.swing.JPanel {
 
         jPanel5.add(timePanel);
 
-        webComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Raio", "Gulosa" }));
-        webComboBox1.setMinimumSize(new java.awt.Dimension(56, 30));
-        jPanel5.add(webComboBox1);
+        comboBoxAlgoritmo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BackTracking1", "BackTracking2" }));
+        comboBoxAlgoritmo.setMinimumSize(new java.awt.Dimension(56, 30));
+        jPanel5.add(comboBoxAlgoritmo);
 
         webButton2.setText("Criar Mapa");
         webButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +210,11 @@ public class MainPanel extends javax.swing.JPanel {
     public JPanel getImagePane(){
         return jPanel7;
     }
+
+    public WebComboBox getComboBoxAlgoritmo() {
+        return comboBoxAlgoritmo;
+    }
+    
     
     public JTextArea getConsoleArea(){
         return jTextArea1;
@@ -223,7 +229,7 @@ public class MainPanel extends javax.swing.JPanel {
     }
     
     public String getCalcType(){
-        return webComboBox1.getSelectedItem().toString();
+        return comboBoxAlgoritmo.getSelectedItem().toString();
     }
     
     public Integer getBoardSize(){
@@ -252,6 +258,7 @@ public class MainPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.alee.laf.combobox.WebComboBox comboBoxAlgoritmo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -273,6 +280,5 @@ public class MainPanel extends javax.swing.JPanel {
     private com.alee.laf.button.WebButton webButton2;
     private com.alee.laf.button.WebButton webButton3;
     private com.alee.laf.button.WebButton webButton5;
-    private com.alee.laf.combobox.WebComboBox webComboBox1;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,7 +25,7 @@ import java.util.logging.Logger;
  * Backtracking Knight's tour solver
  * @author Pavel Micka
  */
-public class BackTracking {
+public class BackTracking extends KnightsTour{
 
     /**
      * Indicator that the square was not visited yet
@@ -51,7 +51,7 @@ public class BackTracking {
      */
     private int[][] solutionBoard;
     private Coords[] solution;
-    private boolean finish=false;
+    private boolean finish = false;
     private NormalPathController controller;
 
     public static void main(String[] args) {
@@ -64,10 +64,11 @@ public class BackTracking {
      * @param xSize width of the chessboard
      * @param ySize height of the chessboard
      */
-    public BackTracking(int xSize, int ySize, NormalPathController controller) {
-        this.controller=controller;
-        this.xSize = xSize;
-        this.ySize = ySize;
+    public BackTracking(int n, NormalPathController controller) {
+        super(n, controller);
+        this.controller = controller;
+        this.xSize = n;
+        this.ySize = n;
         solution = new Coords[ySize*xSize];
         solutionBoard = new int[ySize][xSize];
         for (int i = 0; i < ySize; i++) {
@@ -164,6 +165,12 @@ public class BackTracking {
         for (int i = 0; i < solution.length; i++) {
                 System.out.print(solution[i].toString()+ " / ");
         }
+    }
+
+    @Override
+    public Coords[] findPath() {
+        this.solve();
+        return solution;
     }
     
     

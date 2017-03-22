@@ -6,6 +6,8 @@
 package br.beholder.knightstour.control;
 
 import br.beholder.knightstour.core.algoritmos.BackTracking;
+import br.beholder.knightstour.core.algoritmos.BackTracking2;
+import br.beholder.knightstour.core.algoritmos.KnightsTour;
 import br.beholder.knightstour.core.model.Coords;
 import br.beholder.knightstour.core.model.Mapa;
 import br.beholder.knightstour.ui.MainPanel;
@@ -68,11 +70,18 @@ public class NormalPathController {
     public void calculate() {
         if (mapa != null) {
             
-            BackTracking bt = new BackTracking(mainPanel.getBoardSize(), mainPanel.getBoardSize(),this);
+//            BackTracking bt = new BackTracking(mainPanel.getBoardSize(), mainPanel.getBoardSize(),this);
+            KnightsTour kt;
+            if(mainPanel.getComboBoxAlgoritmo().getSelectedIndex() == 0){
+                kt = new BackTracking(mainPanel.getBoardSize(), this);
+            }else{
+                kt = new BackTracking2(mainPanel.getBoardSize(), this);
+            }
             Thread t = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    bt.solve();
+//                    bt.solve();
+                    kt.findPath();
                 }
             });
             t.start();
