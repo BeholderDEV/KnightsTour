@@ -27,7 +27,7 @@ public class MapRenderer extends JComponent{
     static Image tile_set;
     static Image cat_sprite;
     static ImageObserver observer;
-    static int tile_size = 64;
+    static int tile_size = 128;
     static int base = 500;
     static private MapRenderer mapRenderer;
 
