@@ -44,6 +44,7 @@ public class Warnsdorf extends KnightsTour{
 //            this.imprimirSolucao();
         }else{
             System.out.println("Fail"); 
+//            this.imprimirSolucao();
             this.resetBoard(); 
             return this.findPath();
         }

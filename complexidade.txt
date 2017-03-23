@@ -1,0 +1,12 @@
+--BackTracking
+
+Pior caso: 8^(N^2)
+
+
+--Warnsdorf
+
+Caso Melhor: N^2 -2
+
+Caso Pior: n^2
+
+OF: percorrer caminho()
