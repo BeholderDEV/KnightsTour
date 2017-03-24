@@ -15,8 +15,10 @@ import java.util.Random;
  */
 public class BackTracking2 extends KnightsTour{
         
-    int path = 1;
-    
+    private int path = 1;
+    private int moveX [] = { 2, 1, -1, -2, -2, -1,  1,  2 };
+    private int moveY [] = { 1, 2,  2,  1, -1, -2, -2, -1 };
+
     public BackTracking2(int n, NormalPathController ctr) {
         super(n, ctr);
     }
@@ -50,30 +52,12 @@ public class BackTracking2 extends KnightsTour{
         if(path == this.solucao.length * this.solucao.length + 1) {
             return true;
         }
-        if(this.movimentoValido(linha + 2, coluna + 1) && this.percorrerCaminho(linha + 2, coluna + 1)) {
-            return true;
+        for (int i = 0; i < 8; i++) {
+            if(this.movimentoValido(linha + this.moveX[i], coluna + this.moveY[i]) && this.percorrerCaminho(linha + this.moveX[i], coluna + this.moveY[i])){
+                return true;
+            }
         }
-        if(this.movimentoValido(linha + 1, coluna + 2) && this.percorrerCaminho(linha + 1, coluna + 2)) {
-            return true;
-        }
-        if(this.movimentoValido(linha - 1, coluna + 2) && this.percorrerCaminho(linha - 1, coluna + 2)) {
-            return true;
-        }
-        if(this.movimentoValido(linha - 2, coluna + 1) && this.percorrerCaminho(linha - 2, coluna + 1)) {
-            return true;
-        }
-        if(this.movimentoValido(linha - 2, coluna - 1) && this.percorrerCaminho(linha - 2, coluna - 1)) {
-            return true;
-        }
-        if(this.movimentoValido(linha - 1, coluna - 2) && this.percorrerCaminho(linha - 1, coluna - 2)) {
-            return true;
-        }
-        if(this.movimentoValido(linha + 1, coluna - 2) && this.percorrerCaminho(linha + 1, coluna - 2)) {
-            return true;
-        }
-        if(this.movimentoValido(linha + 2, coluna - 1) && this.percorrerCaminho(linha + 2, coluna - 1)) {
-            return true;
-        }
+        
         this.solucao[linha][coluna] = 0;
         this.path--;
         return false;

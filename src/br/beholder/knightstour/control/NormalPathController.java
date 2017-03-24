@@ -68,7 +68,7 @@ public class NormalPathController {
     }
 
     public void calculate() {
-        if(this.threadExecucao){
+        if(this.threadExecucao || mainPanel.getBoardSize() < 5){
             return;
         }
         if(this.mapaFinalizado){
