@@ -19,9 +19,6 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Point;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.control.Cell;
 import javax.swing.SwingUtilities;
 
 /**
@@ -30,10 +27,12 @@ import javax.swing.SwingUtilities;
  */
 public class NormalPathController {
 
-    Mapa mapa;
-    MainPanel mainPanel;
-    String tipo;
-
+    private Mapa mapa;
+    private MainPanel mainPanel;
+    private String tipo;
+    private boolean mapaFinalizado = false;
+    private boolean threadExecucao = false;
+    
     private void setPathImage(Image imagem) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -69,9 +68,13 @@ public class NormalPathController {
     }
 
     public void calculate() {
+        if(this.threadExecucao){
+            return;
+        }
+        if(this.mapaFinalizado){
+            this.createMap(this.mainPanel.getBoardSize());
+        }
         if (mapa != null) {
-            
-//            BackTracking bt = new BackTracking(mainPanel.getBoardSize(), mainPanel.getBoardSize(),this);
             KnightsTour kt;
             if(mainPanel.getComboBoxAlgoritmo().getSelectedIndex() == 0){
                 kt = new BackTracking(mainPanel.getBoardSize(), this);
@@ -83,8 +86,10 @@ public class NormalPathController {
             Thread t = new Thread(new Runnable() {
                 @Override
                 public void run() {
-//                    bt.solve();
+                    threadExecucao = true;
                     kt.findPath();
+                    mapaFinalizado = true;
+                    threadExecucao = false;
                 }
             });
             t.start();
@@ -101,8 +106,11 @@ public class NormalPathController {
         setPathImage(imagem);
     }
     
-    public void createMap(Integer size, Point initial)
+    public void createMap(Integer size)
     {
+        if(this.threadExecucao){
+            return;
+        }
         int[][] mat = new int[size][size];        
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -114,19 +122,20 @@ public class NormalPathController {
                 }
             }
         }        
-        mapa = new Mapa(new Dimension(size, size), mat, initial);
+        mapa = new Mapa(new Dimension(size, size), mat, new Point(size / 2, size / 2));
         Image image = MapRenderer.getInstance().getFirstImage(mapa);
         setPathImage(image);
         String str="";
-        str = str.concat("Mapa Criado \n");
         str = str.concat("Tamanho: " + size + "x" + size);
-        str = str.concat("\n Inicio: X-" + initial.getX() + " Y-"+initial.getY());
-        
         mainPanel.getConsoleArea().setText(str);
+        this.mapaFinalizado = false;
     }
     
     public void randomMap()
     {
+        if(this.threadExecucao){
+            return;
+        }
         int size = ThreadLocalRandom.current().nextInt(5, 50);
         int[][] mat = new int[size][size];        
         for (int i = 0; i < size; i++) {
@@ -151,5 +160,10 @@ public class NormalPathController {
         str = str.concat("\n Inicio: X-" + initial.getX() + " Y-"+initial.getY());
         
         mainPanel.getConsoleArea().setText(str);
+        this.mapaFinalizado = false;
+    }
+    
+    public void appendTextConsole(String text){
+        this.mainPanel.getConsoleArea().append(text);
     }
 }

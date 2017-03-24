@@ -22,33 +22,17 @@ import java.util.logging.Logger;
  * @author Alisson
  */
 /**
- * Backtracking Knight's tour solver
  * @author Pavel Micka
  */
 public class BackTracking extends KnightsTour{
 
-    /**
-     * Indicator that the square was not visited yet
-     */
+
     private static int NOT_VISITED = -1;
-    /**
-     * Width of the chessboard
-     */
+
     private int xSize;
-    /**
-     * Height of the chessboard
-     */
+
     private int ySize;
-    /**
-     * Solution board
-     * 0 -> Initial position of the knight
-     * 1 -> first move
-     * 2 -> second move
-     * .
-     * .
-     * .
-     * n -> n-th move
-     */
+
     private int[][] solutionBoard;
     private Coords[] solution;
     private boolean finish = false;
@@ -59,11 +43,6 @@ public class BackTracking extends KnightsTour{
         //kt.solve();
     }
 
-    /**
-     * Constructor
-     * @param xSize width of the chessboard
-     * @param ySize height of the chessboard
-     */
     public BackTracking(int n, NormalPathController controller) {
         super(n, controller);
         this.controller = controller;
@@ -78,9 +57,6 @@ public class BackTracking extends KnightsTour{
         }
     }
 
-    /**
-     * Solve the knight's tour
-     */
     public Coords[] solve() {
         takeTurn(0, 0, 0);
         for (Coords coord : solution) {
@@ -96,39 +72,27 @@ public class BackTracking extends KnightsTour{
         return solution;
     }
 
-    /**
-     * Return possible destinations of the knight
-     * @param x x coord of the knight
-     * @param y y coord of the knight
-     * @return possible destinations of the knight
-     */
     private List<Coords> getFields(int x, int y) {
         List<Coords> l = new ArrayList<Coords>();
         if (x + 2 < xSize && y - 1 >= 0)
-            l.add(new Coords(x + 2, y - 1)); //right and upward
+            l.add(new Coords(x + 2, y - 1)); 
         if (x + 1 < xSize && y - 2 >= 0)
-            l.add(new Coords(x + 1, y - 2)); //upward and right
+            l.add(new Coords(x + 1, y - 2));
         if (x - 1 >= 0 && y - 2 >= 0)
-            l.add(new Coords(x - 1, y - 2)); //upward and left
+            l.add(new Coords(x - 1, y - 2)); 
         if (x - 2 >= 0 && y - 1 >= 0)
-            l.add(new Coords(x - 2, y - 1)); //left and upward
+            l.add(new Coords(x - 2, y - 1));
         if (x - 2 >= 0 && y + 1 < ySize)
-            l.add(new Coords(x - 2, y + 1)); //left and downward
+            l.add(new Coords(x - 2, y + 1));
         if (x - 1 >= 0 && y + 2 < ySize)
-            l.add(new Coords(x - 1, y + 2)); //downward and left
+            l.add(new Coords(x - 1, y + 2));
         if (x + 1 < xSize && y + 2 < ySize)
-            l.add(new Coords(x + 1, y + 2)); //downward and right
+            l.add(new Coords(x + 1, y + 2));
         if (x + 2 < xSize && y + 1 < ySize)
-            l.add(new Coords(x + 2, y + 1)); //right and downward
+            l.add(new Coords(x + 2, y + 1));
         return l;
     }
 
-    /**
-     * Perform the move
-     * @param x destination x coord
-     * @param y destination y coord
-     * @param turnNr number of the move
-     */
     private void takeTurn(int x, int y, int turnNr) {
         if(!finish){
             solutionBoard[y][x] = turnNr;
@@ -150,9 +114,6 @@ public class BackTracking extends KnightsTour{
         
     }
 
-    /**
-     * Print out the solution
-     */
     private void printSolution() {
         //System.out.println("Solution #" + solutionsCount);
         for (int i = 0; i < solutionBoard.length; i++) {

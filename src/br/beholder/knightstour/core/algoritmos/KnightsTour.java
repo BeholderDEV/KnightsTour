@@ -33,6 +33,10 @@ public abstract class KnightsTour {
     public abstract Coords[] findPath();
     
     public void desenharSolucao(){
+        if(this.solutionCoord.length == 0) {
+            return;
+        }
+        this.controller.appendTextConsole("\nIniciando na posição: " + this.solutionCoord[0].getX() + ", " + this.solutionCoord[0].getY());
         for (Coords coord : this.solutionCoord) {
             this.controller.getMap().andar(new Point(coord.getX(), coord.getY()));
             Image imagem = MapRenderer.getInstance().getFirstImage(this.controller.getMap());

@@ -15,9 +15,6 @@ import java.util.Random;
  * @author Augustop
  */
 
-//c,d) ∈ {(a−2,b+1),(a−1,b+2),(a+1,b+2),(a+2,b+1),(a+2,b−1),(a+1,b−2),
-//           (a−1,b−2),(a−2,b−1)}
-
 public class Warnsdorf extends KnightsTour{
 
     private int moveX [] = { -2, -2, -1, 1, 2, 2, -1, 1 };
@@ -38,7 +35,6 @@ public class Warnsdorf extends KnightsTour{
         System.out.println(linhaInicial + ", " + colunaInicial);
         Coords posicaoInicial = new Coords(linhaInicial, colunaInicial);  
         
-        // Falhando algumas vezes (ler https://www.cs.cmu.edu/~sganzfri/Knights_REU04.pdf) -> Definir desempate de vizinhos
         if(this.percorrerCaminho(posicaoInicial, 1)){; 
             this.desenharSolucao();
 //            this.imprimirSolucao();

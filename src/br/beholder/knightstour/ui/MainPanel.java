@@ -40,13 +40,10 @@ public class MainPanel extends javax.swing.JPanel {
         WeblafUtils.configuraWebLaf(comboBoxAlgoritmo);
         WeblafUtils.configuraWeblaf(jPanel2);
         WeblafUtils.configuraWebLaf(jTextField1);
-        WeblafUtils.configuraWebLaf(jTextField4);
-        WeblafUtils.configuraWebLaf(jTextField3);
         WeblafUtils.configuraWebLaf(jTextField5);
         WeblafUtils.configuraWebLaf(jTextArea1);
         WeblafUtils.configuraWeblaf(timePanel, ColorController.COR_PRINCIPAL, false, false, false, false);
         WeblafUtils.configuraWeblaf(sizePanel, ColorController.COR_PRINCIPAL, false, false, false, false);
-        WeblafUtils.configuraWeblaf(positionPanel, ColorController.COR_PRINCIPAL, false, false, false, false);
         
         WeblafUtils.configuraWebLaf(jScrollPane1);
         
@@ -59,8 +56,6 @@ public class MainPanel extends javax.swing.JPanel {
 //        WeblafUtils.configurarBotao(webButton3, ColorController.COR_PRINCIPAL, ColorController.COR_LETRA,ColorController.FUNDO_CLARO, Color.orange, 5);
         
         jLabel1.setForeground(ColorController.COR_LETRA);
-        jLabel2.setForeground(ColorController.COR_LETRA);
-        jLabel3.setForeground(ColorController.COR_LETRA);
         jLabel4.setForeground(ColorController.COR_LETRA);
         jPanel2.setBackground(ColorController.COR_PRINCIPAL);
         jPanel7.setBackground(ColorController.COR_PRINCIPAL);
@@ -82,11 +77,6 @@ public class MainPanel extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        positionPanel = new javax.swing.JPanel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         sizePanel = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -114,29 +104,6 @@ public class MainPanel extends javax.swing.JPanel {
 
         jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
-
-        jTextField4.setText("7");
-        jTextField4.setMinimumSize(new java.awt.Dimension(6, 10));
-        jTextField4.setPreferredSize(new java.awt.Dimension(25, 35));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        positionPanel.add(jTextField4);
-
-        jLabel3.setText("x");
-        positionPanel.add(jLabel3);
-
-        jTextField3.setText("7");
-        jTextField3.setMinimumSize(new java.awt.Dimension(6, 10));
-        jTextField3.setPreferredSize(new java.awt.Dimension(25, 35));
-        positionPanel.add(jTextField3);
-
-        jLabel2.setText("Posicao Inicial");
-        positionPanel.add(jLabel2);
-
-        jPanel5.add(positionPanel);
 
         jTextField5.setText("8");
         jTextField5.setMinimumSize(new java.awt.Dimension(6, 10));
@@ -236,32 +203,23 @@ public class MainPanel extends javax.swing.JPanel {
         return Integer.parseInt(jTextField5.getText());
     }
     
-    public Point getInicialPosition(){
-        return new Point(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField3.getText()));
-    }
     
     private void webButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webButton5ActionPerformed
         controller.calculate();
     }//GEN-LAST:event_webButton5ActionPerformed
 
     private void webButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webButton2ActionPerformed
-        controller.createMap(getBoardSize(), getInicialPosition());
+        controller.createMap(getBoardSize());
     }//GEN-LAST:event_webButton2ActionPerformed
 
     private void webButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webButton3ActionPerformed
         controller.randomMap();
     }//GEN-LAST:event_webButton3ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.alee.laf.combobox.WebComboBox comboBoxAlgoritmo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
@@ -271,10 +229,7 @@ public class MainPanel extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JPanel positionPanel;
     private javax.swing.JPanel sizePanel;
     private javax.swing.JPanel timePanel;
     private com.alee.laf.button.WebButton webButton2;
