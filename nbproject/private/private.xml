@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alisson/Documents/Git/KnightsTour/src/br/beholder/knightstour/core/matrix/MatrixGenerator.java</file>
-            <file>file:/C:/Users/Alisson/Documents/Git/KnightsTour/src/br/beholder/knightstour/Lancador.java</file>
-            <file>file:/C:/Users/Alisson/Documents/Git/KnightsTour/src/br/beholder/knightstour/ui/swing/MapRenderer.java</file>
-            <file>file:/C:/Users/Alisson/Documents/Git/KnightsTour/src/br/beholder/knightstour/ui/MainPanel.java</file>
-            <file>file:/C:/Users/Alisson/Documents/Git/KnightsTour/src/br/beholder/knightstour/control/NormalPathController.java</file>
-            <file>file:/C:/Users/Alisson/Documents/Git/KnightsTour/src/br/beholder/knightstour/ui/resources/tileset.png</file>
-            <file>file:/C:/Users/Alisson/Documents/Git/KnightsTour/src/br/beholder/knightstour/ui/utils/ColorController.java</file>
+            <file>file:/C:/Users/shina/Documents/Github/KnightsTour/src/br/beholder/knightstour/core/algoritmos/Warnsdorf.java</file>
+            <file>file:/C:/Users/shina/Documents/Github/KnightsTour/src/br/beholder/knightstour/core/algoritmos/BackTracking2.java</file>
         </group>
     </open-files>
 </project-private>
