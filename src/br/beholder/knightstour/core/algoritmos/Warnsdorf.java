@@ -35,7 +35,7 @@ public class Warnsdorf extends KnightsTour{
         System.out.println(linhaInicial + ", " + colunaInicial);
         Coords posicaoInicial = new Coords(linhaInicial, colunaInicial);  
         
-        if(this.percorrerCaminho(posicaoInicial, 1)){; 
+        if(this.percorrerCaminho(posicaoInicial)){; 
             this.desenharSolucao();
 //            this.imprimirSolucao();
         }else{
@@ -71,30 +71,34 @@ public class Warnsdorf extends KnightsTour{
         return qtd;
     }
     
-    private boolean percorrerCaminho(Coords posicao, int passosRealizados){
+    private boolean percorrerCaminho(Coords posicao){
+        int passosRealizados = 1;
+        while(passosRealizados != this.solucao.length * this.solucao.length) {
+            this.solucao[posicao.getX()][posicao.getY()] = passosRealizados;
+            this.solutionCoord[passosRealizados - 1] = new Coords(posicao.getX(), posicao.getY());
+            ArrayList<Coords> vizinhos = this.getVizinhos(posicao);
+            if(vizinhos.isEmpty()){
+                return false;
+            }
+            Coords novaPosicao = null;
+            int menorVizinho = Integer.MAX_VALUE;
+            int quantidadeVizinhos;
+            for (Coords vizinho : vizinhos) {
+                quantidadeVizinhos = this.calcularNumeroVizinhos(vizinho);
+                if((quantidadeVizinhos > 0 || passosRealizados == this.solucao.length * this.solucao.length - 1) && quantidadeVizinhos < menorVizinho){ // Decidir o que fazer com empates
+                    menorVizinho = quantidadeVizinhos;
+                    novaPosicao = vizinho;
+                }
+            }
+            if(novaPosicao == null){
+                return false;
+            }
+            posicao = novaPosicao;
+            passosRealizados++;
+        }
         this.solucao[posicao.getX()][posicao.getY()] = passosRealizados;
         this.solutionCoord[passosRealizados - 1] = new Coords(posicao.getX(), posicao.getY());
-        if(passosRealizados == this.solucao.length * this.solucao.length){
-            return true;
-        }
-        ArrayList<Coords> vizinhos = this.getVizinhos(posicao);
-        if(vizinhos.isEmpty()){
-            return false;
-        }
-        Coords novaPosicao = null;
-        int menorVizinho = Integer.MAX_VALUE;
-        int quantidadeVizinhos;
-        for (Coords vizinho : vizinhos) {
-            quantidadeVizinhos = this.calcularNumeroVizinhos(vizinho);
-            if((quantidadeVizinhos > 0 || passosRealizados == this.solucao.length * this.solucao.length - 1) && quantidadeVizinhos < menorVizinho){ // Decidir o que fazer com empates
-                menorVizinho = quantidadeVizinhos;
-                novaPosicao = vizinho;
-            }
-        }
-        if(novaPosicao == null){
-            return false;
-        }
-        return this.percorrerCaminho(novaPosicao, passosRealizados + 1);
+        return true;
     }
     
 }
